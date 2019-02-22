@@ -2,7 +2,10 @@
     <ul>
       <li v-for="(msg, index) in messages" :key="msg.id">
         <router-link :to="`/home/message/details/${msg.id}`">{{msg.title}}</router-link>
+        <button @click="pushShow(msg.id)">push</button>
+        <button @click="replaceShow(msg.id)">replace</button>
       </li>
+      <button @click="$router.back()">back</button>
       <router-view></router-view>
     </ul>
 </template>
@@ -27,7 +30,15 @@
 
             ]
           }
-        }
+        },
+      methods:{
+          pushShow: function (id) {
+            this.$router.push(`/home/message/details/${id}`)
+          },
+          replaceShow: function (id) {
+            this.$router.replace(`/home/message/details/${id}`)
+          }
+      }
     }
 </script>
 
