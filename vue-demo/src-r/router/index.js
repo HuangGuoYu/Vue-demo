@@ -4,7 +4,7 @@ import About from '../views/About'
 import Home from '../views/Home'
 import News from '../views/News'
 import Message from '../views/Message'
-
+import MsgDetail from '../views/MsgDetail'
 
 Vue.use(VueRouter);
 
@@ -24,7 +24,13 @@ export default new VueRouter({
         },
         {
           path: '/home/message',
-          component: Message
+          component: Message,
+          children: [
+            {
+              path: 'details/:id', //params method
+              component: MsgDetail
+            }
+          ]
         },
       ]
     }
