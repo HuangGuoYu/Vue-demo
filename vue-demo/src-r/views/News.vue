@@ -1,6 +1,7 @@
 <template>
     <ul>
       <li v-for="(news, index) in newsArray">{{news}}</li>
+      <input type="text">
     </ul>
 </template>
 
